@@ -1,4 +1,4 @@
-<img src="https://latex.codecogs.com/png.image?\dpi{110}&space;\bg_black&space;\int_0^\infty f^\theta(x) dx">
+<img src="https://latex.codecogs.com/png.image?\dpi{110}&space;\bg_black&space;\int_0^\inftyf^\theta(x)dx">
 
 <img src="https://latex.codecogs.com/png.image?\dpi{110}&space;\bg_black&space;F=P(1+\frac{i}{n})^{nt})">
 
