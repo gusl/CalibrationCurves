@@ -12,6 +12,9 @@ bootstrap CIs are an improvement over the built-in ones, in this respect.
 **Future work:** Produce Bayesian intervals with Stan, using isotonic
 splines to enforce shape constraint. This seems to be cleanest way.
 
+<!-- [Testing Probability Calibrations
+Andreas Bloechlinger](https://www.efmaefm.org/0EFMAMEETINGS/EFMA%20ANNUAL%20MEETINGS/2006-Madrid/papers/147279_full.pdf) -->
+
 ## Confidence Intervals via Isotonic Binary Regression
 
 We now present isotonic binary regression.
@@ -29,8 +32,8 @@ src="https://latex.codecogs.com/png.image?\dpi{110}&space;\bg_black&space;Y_i%20
 where **g** is a non-decreasing function. We don't know what `cgam`
 uses under the hood to enforce this shape constraint, but it does
 appear to work -- the MLE seems to always be an isotonic function.  Unfortunately, isotonicity is not guaranteed for
-the confidence intervals (CIs).  Our methods also don't guarantee that the quantile will be
-isotonic as a function of X, but they do improve the situation significantly.
+the confidence intervals (CIs).  While our methods don't guarantee that the quantile will be
+isotonic as a function of X, but they do improve this significantly.
 
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/builtin.png" width=180 height=200>
