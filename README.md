@@ -15,7 +15,8 @@ augmented bootstrap method, which is a big improvement over the built-in method.
 (metrics: over vs under-coverage; centrality; length).
 - [Bayesian
 bootstrap](https://www.sumsar.net/blog/2015/04/the-non-parametric-bootstrap-as-a-bayesian-model/)
-for increasing the bootstrap sample size, thereby allowing us to try weaker "priors", which may perform better.
+for increasing the bootstrap sample size, for (a) mitigating non-isotonicity
+issue and (b) allowing us to try weaker "priors", which may perform better.
 - Use Stan to produce Bayesian intervals, using isotonic
 splines to enforce shape constraint. The result would be our first
 truly isotonic method.
