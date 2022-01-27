@@ -30,6 +30,8 @@ uses under the hood to enforce this shape constraint, but it does work
 the confidence intervals (CIs).  Our methods likewise don't guarantee that the quantile will be
 isotonic as a function of X, but they do improve this significantly.
 
+<img src="https://github.com/gusl/CalibrationCurves/blob/main/builtin.png">
+
 Our CIs can use one of several methods:
 - (A) `cgam`'s built-in CIs, which do not have isotonicity and in fact
   tend to be extremely wide near the X endpoints 0 and 1, which is not ideal.
