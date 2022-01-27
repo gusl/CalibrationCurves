@@ -53,7 +53,7 @@ this stronger prior, one would
 simultaneously increase the sample size of real observations (possibly even
 more). To avoid the phenomenon of data duplication leading to
 undue confidence (artificially narrow CIs), we could instead use the
-Bayesian bootstrap.
+[Bayesian bootstrap](https://www.sumsar.net/blog/2015/04/the-non-parametric-bootstrap-as-a-bayesian-model/).
 
 Note re: the semantics of CIs -- the coverage levels are meant
 pointwise, not for the whole curve. This means that even if you simulate perfect
