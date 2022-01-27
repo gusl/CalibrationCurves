@@ -33,10 +33,9 @@ the confidence intervals (CIs).  Our methods also don't guarantee that the quant
 isotonic as a function of X, but they do improve the situation significantly.
 
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/builtin.png"
-width=180 height=200>
-<img
 src="https://github.com/gusl/CalibrationCurves/blob/main/builtin.png" width=180 height=200>
+<img
+src="https://github.com/gusl/CalibrationCurves/blob/main/boot_pseudo.png" width=180 height=200>
 
 
 Our CIs can use one of several methods:
