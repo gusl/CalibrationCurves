@@ -26,7 +26,7 @@ The model is:
 src="https://latex.codecogs.com/png.image?\dpi{110}&space;\bg_black&space;Y_i%20\sim%20Bernoulli(g(X_i))">,
 where **g** is a non-decreasing function. We don't know what `cgam`
 uses under the hood to enforce this shape constraint, but it does work
--- MLE is isotonic.  Unfortunately, isotonicity is not guaranteed for
+-- the MLE is an isotonic function.  Unfortunately, isotonicity is not guaranteed for
 the CIs.  Our methods likewise don't guarantee that the quantile will be
 isotonic as a function of X, but they do improve this significantly.
 
@@ -37,4 +37,6 @@ methods:
 - (B) Empirical quantiles of the bootstrap at each X level.
   - which may or may not be smoothed, e.g. with 4 pseudo-observations
     to serve as a "prior". This is better, but note that it still does
-    not guarantee monotonicity, since the endpoints tend to have smaller sample sizes.
+    not guarantee monotonicity, since the endpoints tend to have
+    smaller sample sizes, which happens due to `predict`'s refusal to
+    extrapolate beyond the observed data.
