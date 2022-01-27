@@ -28,7 +28,7 @@ where **g** is a non-decreasing function. We don't know what `cgam`
 uses under the hood to enforce this shape constraint, but it does work
 -- MLE is isotonic.  Unfortunately, isotonicity is not guaranteed for
 the CIs.  Our methods likewise don't guarantee that the quantile will be
-isotonic as a function of X, but make the problem significantly better.
+isotonic as a function of X, but they do improve this significantly.
 
 Our bootstrap confidence intervals (CIs) can use one of several
 methods:
