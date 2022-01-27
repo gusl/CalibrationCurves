@@ -35,7 +35,7 @@ isotonic as a function of X, but they improve the situation significantly.
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/builtin.png"
 width=200 height=200> <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/builtin.png" width=200 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/builtin.png" width=180 height=200>
 
 
 Our CIs can use one of several methods:
