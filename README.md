@@ -5,9 +5,9 @@ calibration curves and forecaster performance more broadly. This repo
 focuses on binary questions.
 
 **Status:** We already have isotonic (a.k.a. non-decreasing) binary
-regression (`cgam`), produce approximate confidence regions (see
-below). Every solution suffers from potential non-isotonicity, but our
-bootstrap CIs are an improvement over the build-in CIs ones, in this respect.
+regression (`cgam`), and produce approximate confidence regions (see
+below). Every CI method here suffers from potential non-isotonicity, but our
+bootstrap CIs are an improvement over the built-in ones, in this respect.
 
 **Future work:** Produce Bayesian intervals with Stan, using isotonic
 splines to enforce shape constraint. This seems to be cleanest way.
