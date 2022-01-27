@@ -36,7 +36,7 @@ Our CIs can use one of several methods:
 - (B) Empirical quantiles of bootstrapped fits at each X level.
   - which may or may not be smoothed, e.g. one can smoothe using 4 pseudo-observations
     that serve as a kind of Beta(1,1) prior. This is better, but note that it still does
-    not guarantee monotonicity, since the endpoints tend to have
+    not guarantee isotonicity, since the endpoints tend to have
     smaller sample sizes due to `predict`'s refusal to
     extrapolate beyond the observed data.
 	
