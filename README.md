@@ -26,7 +26,7 @@ The model is:
 src="https://latex.codecogs.com/png.image?\dpi{110}&space;\bg_black&space;Y_i%20\sim%20Bernoulli(g(X_i))">,
 where **g** is a non-decreasing function. We don't know what `cgam`
 uses under the hood to enforce this shape constraint, but it does work
--- the MLE is an isotonic function.  Unfortunately, isotonicity is not guaranteed for
+-- the MLE is always an isotonic function, AFAICT.  Unfortunately, isotonicity is not guaranteed for
 the confidence intervals (CIs).  Our methods likewise don't guarantee that the quantile will be
 isotonic as a function of X, but they do improve this significantly.
 
