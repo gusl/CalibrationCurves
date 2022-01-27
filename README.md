@@ -1,6 +1,6 @@
 # CalibrationCurves
 
-This is a project to add statistical analyses related to probability
+This is a project to add statistical analyses of probability
 calibration curves and forecaster performance more broadly. This repo
 focuses on binary questions.
 
