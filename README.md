@@ -9,8 +9,12 @@ regression (`cgam`), and produce approximate confidence regions (see
 below). Every CI method here suffers from potential non-isotonicity, but our
 bootstrap CIs are an improvement over the built-in ones, in this respect.
 
-**Future work:** Produce Bayesian intervals with Stan, using isotonic
-splines to enforce shape constraint. This seems to be cleanest way.
+**Future work:**
+- Analyze performance of different CI methods
+(metrics: over vs under-coverage; centrality; length).
+- Bayesian Bootstrap may offer improvement, more flexible "prior"
+- Produce Bayesian intervals with Stan, using isotonic
+splines to enforce shape constraint.
 
 <!-- [Testing Probability Calibrations
 Andreas Bloechlinger](https://www.efmaefm.org/0EFMAMEETINGS/EFMA%20ANNUAL%20MEETINGS/2006-Madrid/papers/147279_full.pdf) -->
