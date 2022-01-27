@@ -52,4 +52,11 @@ unlikely for `predict`'s range to be restricted. To compensate for
 this stronger prior, one would
 simultaneously increase the sample size of real observations (possibly even
 more). To avoid the phenomenon of data duplication leading to
-undue confidence (artificially narrow CIs), we could instead use the Bayesian bootstrap.
+undue confidence (artificially narrow CIs), we could instead use the
+Bayesian bootstrap.
+
+Note re: the semantics of CIs -- the coverage levels are meant
+pointwise, not for the whole curve. This means that even if you simulate perfect
+calibration (see diagonal line) the
+probability that *some* point falls out of the 95% confidence region
+is more than 5%.
