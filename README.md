@@ -31,7 +31,10 @@ the confidence intervals (CIs).  Our methods likewise don't guarantee that the q
 isotonic as a function of X, but they do improve this significantly.
 
 <img
+src="https://github.com/gusl/CalibrationCurves/blob/main/builtin.png"
+width=200 height=200> <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/builtin.png" width=200 height=200>
+
 
 Our CIs can use one of several methods:
 - (A) `cgam`'s built-in CIs, which do not have isotonicity and in fact
