@@ -4,14 +4,14 @@ This is a project to add statistical analyses of probability
 calibration curves and forecaster performance more broadly. This repo
 focuses on binary questions.
 
-**Status:** We already have isotonic (a.k.a. non-decreasing) binary
-regression (`cgam`), and produce approximate confidence regions (see
-below). Every CI method here suffers from potential non-isotonicity, but our
-bootstrap CIs are an improvement over the built-in ones, in this respect.
+**Status:** We have 2+ methods for producing confidence regions of
+calibration curves, using isotonic (a.k.a. non-decreasing) binary
+regression (`cgam` library). Note that every CI method here suffers from potential non-isotonicity, but our
+bootstrap CIs are a big improvement over the built-in ones, in this respect.
 
 **Future work:**
 - Analyze performance of different CI methods
-(metrics: over vs under-coverage; centrality; length).
+(metrics: over vs under-coverage; centrality; length)
 - Bayesian Bootstrap may offer improvement, more flexible "prior"
 - Produce Bayesian intervals with Stan, using isotonic
 splines to enforce shape constraint.
