@@ -32,6 +32,6 @@ methods:
 - `cgam`'s built-in CIs, which do not have monotonicity and in fact
   tend to be extremely wide near the X endpoints 0 and 1, which is not ideal.
 - empirical quantiles of the bootstrap at each X level.
- - which may or may not be smoothed, e.g. with augmentation standing
+  - which may or may not be smoothed, e.g. with augmentation standing
 in as a "prior". Note that smoothing does not guarantee quantiles will
 be monotonic, since the endpoints tend to have smaller sample sizes.
