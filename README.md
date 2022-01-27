@@ -13,9 +13,10 @@ augmented bootstrap method, which is a big improvement over the built-in method.
 **Future work:**
 - Analyze performance of different CI methods
 (metrics: over vs under-coverage; centrality; length)
-- Bayesian Bootstrap may offer improvement, more flexible "prior"
-- Produce Bayesian intervals with Stan, using isotonic
-splines to enforce shape constraint.
+- Bayesian Bootstrap, to produce more flexible "prior".
+- Use Stan to produce Bayesian intervals, using isotonic
+splines to enforce shape constraint. The result would be our first
+truly isotonic method.
 
 <!-- [Testing Probability Calibrations
 Andreas Bloechlinger](https://www.efmaefm.org/0EFMAMEETINGS/EFMA%20ANNUAL%20MEETINGS/2006-Madrid/papers/147279_full.pdf) -->
