@@ -13,8 +13,11 @@ to produce approximate confidence regions.
 
 The isotonic regression model:
 
-For each observation **i**, there's the forecaster's probabilistic
-guess `X_i` in [0,1] and the eventual binary outcome `Y_i` in {0, 1}.
+For each observation **i**, we have the forecaster's probabilistic
+guess <img
+src="https://latex.codecogs.com/png.image?\dpi{110}&space;\bg_black&space;X_i\in%20[0,1]">
+ and the eventual binary outcome <img
+src="https://latex.codecogs.com/png.image?\dpi{110}&space;\bg_black&space;Y_i\in%20\{0,1\}">.
 
 The model is:
 
@@ -26,16 +29,9 @@ with this.
 
 Our bootstrap confidence intervals (CIs) can use one of several
 methods:
-- cgam's built-in CIs, does not enforce monotonicity.
+- `cgam`'s built-in CIs, which do not enforce monotonicity and in fact
+  tend to be extremely wide near the X endpoints 0 and 1.
 - empirical quantiles of the bootstrap at each X level.
 -- which may or may not be smoothed, e.g. with augmentation standing
 in as a "prior". Note that smoothing does not guarantee quantiles will
 be monotonic, since the endpoints tend to have smaller sample sizes.
-
-
-<img src="https://latex.codecogs.com/png.image?\dpi{110}&space;\bg_black&space;\int_0^\infty%20f^\theta(x)%20dx">
-
-<img src="https://latex.codecogs.com/png.image?\dpi{110}&space;\bg_black&space;F=P(1+\frac{i}{n})^{nt})">
-
-
-
