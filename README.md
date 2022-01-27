@@ -7,7 +7,7 @@ focuses on binary questions.
 **Status:** We have 2+ methods for producing confidence regions of
 calibration curves, using isotonic (a.k.a. non-decreasing) binary
 regression (`cgam` library). Note that every CI method here suffers
-from potential non-isotonicity, this is barely visible in our
+from potential non-isotonicity, but this is barely visible in our
 augmented bootstrap method, which is a big improvement over the built-in method.
 
 **Future work:**
