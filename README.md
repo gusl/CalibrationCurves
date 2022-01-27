@@ -40,8 +40,10 @@ Our CIs can use one of several methods:
     smaller sample sizes due to `predict`'s refusal to
     extrapolate beyond the observed data.
 	
-Future work:
-- (C) Bayesian bootstrap would enable increasing the size of each bootstrap
-  sample, 
-
-to weaken the prior, by amplifying the sample size
+We can imagine improving upon (B) by increasing the number of
+pseudo-data points at the endpoints, so that it becomes overwhelmingly
+unlikely for `predict`'s range to be restricted. To compensate for
+this stronger prior, one would
+simultaneously increase the sample size of real observations (possibly even
+more). To avoid the phenomenon of data duplication leading to
+undue confidence (artificially narrow CIs), we could instead use the Bayesian bootstrap.
