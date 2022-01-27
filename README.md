@@ -47,13 +47,17 @@ Our CIs can use one of several methods:
     extrapolate beyond the observed data.
 	
 We can imagine improving upon (B) by increasing the number of
-pseudo-data points at the endpoints, so that it becomes overwhelmingly
-unlikely for `predict`'s range to be restricted. To compensate for
+pseudo-data points at the endpoints by 10x, so that it becomes overwhelmingly
+unlikely for `predict`'s range to be restricted (Chance of 2^-20 per endpoint). To compensate for
 this stronger prior, one would
 simultaneously increase the sample size of real observations (possibly even
 more). To avoid the phenomenon of data duplication leading to
 undue confidence (artificially narrow CIs), we could instead use the
-[Bayesian bootstrap](https://www.sumsar.net/blog/2015/04/the-non-parametric-bootstrap-as-a-bayesian-model/).
+[Bayesian
+bootstrap](https://www.sumsar.net/blog/2015/04/the-non-parametric-bootstrap-as-a-bayesian-model/).
+
+<!-- But maybe a more interesting question is how well the bootstrap
+distribution approximates posterior distributions. -->
 
 Note re: the semantics of CIs -- the coverage levels are meant
 pointwise, not for the whole curve. This means that even if you simulate perfect
