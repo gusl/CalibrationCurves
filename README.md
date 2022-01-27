@@ -10,9 +10,9 @@ regression (`cgam`), to produce approximate confidence regions (see below).
 **Future work:** Produce Bayesian intervals with Stan, using isotonic
 splines to enforce shape constraint.
 
-## Confidence Intervals via Isotonic Binary Regression + Bootstrap
+## Confidence Intervals via Isotonic Binary Regression
 
-The isotonic regression model:
+We now present isotonic binary regression.
 
 For each observation **i**, we have the forecaster's probabilistic
 guess <img
