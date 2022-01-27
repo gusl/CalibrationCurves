@@ -24,12 +24,13 @@ where **g** is a non-decreasing function. Under the hood `cgam` is
 presumably using isotonic splines, but we don't need to be concerned
 with this.
 
-
-Our bootstrap confidence intervals (CIs) are based on empirical
-quantiles of the bootstrap at each X level.
-
-If we simply bootstrap, we miss out
-smoothing
+Our bootstrap confidence intervals (CIs) can use one of several
+methods:
+- cgam's built-in CIs, does not enforce monotonicity.
+- empirical quantiles of the bootstrap at each X level.
+-- which may or may not be smoothed, e.g. with augmentation standing
+in as a "prior". Note that smoothing does not guarantee quantiles will
+be monotonic, since the endpoints tend to have smaller sample sizes.
 
 
 <img src="https://latex.codecogs.com/png.image?\dpi{110}&space;\bg_black&space;\int_0^\infty%20f^\theta(x)%20dx">
