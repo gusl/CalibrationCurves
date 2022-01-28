@@ -2,7 +2,7 @@ This repo focuses on probabilistic forecasts for binary questions.
 
 # Calibration Curves
 
-Ironically, calibration typically does not come with any probabilistic
+Ironically, calibration reports typically do not include any probabilistic
 statements, making it impossible to evaluate the evaluator! This is our attempt at fixing this.
 
 **Project Status:**
