@@ -1,5 +1,6 @@
 ## Calibrating the calibrator!
-## Ironically, calibration curves typically don't say anything probabilistic about.
+## Ironically, calibration curves typically don't come with any probabilistic
+## claims.
 
 Last <- function(v) v[length(v)]
 library(cgam)

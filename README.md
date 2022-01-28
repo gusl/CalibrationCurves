@@ -1,10 +1,11 @@
-# CalibrationCurves
+This is a project to add statistical analyses of probability calibration curves and forecaster performance more broadly. This repo focuses on binary questions.
 
-This is a project to add statistical analyses of probability
-calibration curves and forecaster performance more broadly. This repo
-focuses on binary questions.
+# Calibration Curves
 
-**Status:** We have 2+ methods for producing confidence regions of
+Ironically, calibration curves typically published without any
+making probabilistic claims. This is our attempt at fixing this.
+
+**Status:** We have 2 methods for producing confidence regions of
 calibration curves, using isotonic (a.k.a. non-decreasing) binary
 regression (`cgam` library). Note that every CI method here suffers
 from potential non-isotonicity, but this is barely visible in our
