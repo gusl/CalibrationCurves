@@ -5,7 +5,7 @@ This repo focuses on probabilistic forecasts for binary questions.
 # Calibration Curves
 
 Ironically, calibration reports typically do not themselves make probabilistic
-claims, making it impossible to evaluate the evaluator! This is our attempt at fixing this.
+claims, making it impossible for the evaluator to be evaluated! This is our attempt at fixing this.
 
 **Project Status:**
 - We have 2 methods for producing confidence regions of
