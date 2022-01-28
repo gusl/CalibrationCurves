@@ -2,10 +2,11 @@ This repo focuses on probabilistic forecasts for binary questions.
 
 # Calibration Curves
 
-Ironically, calibration typically does not come with any probability
+Ironically, calibration typically does not come with any probabilistic
 statements, making it impossible to evaluate the evaluator! This is our attempt at fixing this.
 
-**Status:** We have 2 methods for producing confidence regions of
+**Project Status:**
+- We have 2 methods for producing confidence regions of
 calibration curves, using isotonic (a.k.a. non-decreasing) binary
 regression (`cgam` library). Note that every CI method here suffers
 from potential non-isotonicity, but this is barely visible in our
