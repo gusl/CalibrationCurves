@@ -1,4 +1,4 @@
-By gusl@, 2022-01-27
+By gusl@.
 
 This repo is about probabilistic forecasts of binary questions.
 
