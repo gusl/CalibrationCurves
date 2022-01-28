@@ -4,7 +4,7 @@ Last <- function(v) v[length(v)]
 
 AugmentData <- function(d, n.orig=1) {
   ## n.orig: number of times raw data counts, typically 1 or 2
-  ## pseudo.data counts only once
+  ## pseudo.data (4 points) counts only once
   pseudo.data <- data.frame(guess=c(0,0,1,1), outcome=c(0,1,0,1))
   raws <- data.frame()
   for (i in 1:n.orig) {
@@ -24,9 +24,7 @@ RoundGuess <- function(p) (floor(98*p) + 1)/100
 guess <- RoundGuess(ps)
 outcome <- rbinom(N, 1, prob=ps)
 data <- data.frame(guess=guess, outcome=outcome)
-## save(data, file="~/underconfident.Rdata")
 raw.data <- data
-##load("~/underconfident.Rdata")
 with(raw.data, plot(guess, outcome))
 
 data <- AugmentData(data)
@@ -56,7 +54,7 @@ Bootstrap <- function(data, K = 20, add.pseudodata = TRUE) {
     pred <- predict(fit, data.frame(guess=XX))$fit ## Extrapolation not allowed
     preds[k, match(XX, full.XX)] <- pred   ## Replace some of the NAs
     if (min(filter(pred, c(1,-1)), na.rm=TRUE) < 0) {
-      cat("ERROR: Detected non-monotonic fit:  k =", k) ## Just in case
+      cat("ERROR: Detected non-isotonic fit:  k =", k) ## Just in case
     }
   }
   return(preds)
@@ -83,8 +81,10 @@ XX <- full.XX[good.indices]
 #         shape1 = 1 + (K - XX.sample.size) * p,
 #         shape2 = 1 + XX.sample.size * p)
 # }
-# ## Issue: The empirical CI sometimes shrinks to [0,0] or [1,1]. We
-# ## could threshold it with a constant defined by the Beta quantile.
+
+## Issue: Without data augmentation, the empirical CI sometimes shrinks to
+## [0,0] or [1,1]. We could threshold it with a constant defined by the Beta
+## quantile.
 
 
 ComputeCIs <- function(coverage, use.builtin=TRUE, adjust=FALSE, use.beta=FALSE) {
@@ -105,9 +105,6 @@ ComputeCIs <- function(coverage, use.builtin=TRUE, adjust=FALSE, use.beta=FALSE)
     cis <- apply(preds[, good.indices], 2, 
                  function(v) quantile(v, ## augment with 0 and 1?
                                       qs, na.rm=TRUE))
-    ##
-    ## If neither 0 nor 1 is present, then some of the bootstrap samples won't have an opinion there
-    ## Lower the sample size, and leading to a higher upper quantile.
     l <- cis[1,]
     u <- cis[2,]
   }
