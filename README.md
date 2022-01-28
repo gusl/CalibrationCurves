@@ -112,6 +112,8 @@ src="https://github.com/gusl/CalibrationCurves/blob/main/img/C_boot.png" width=1
 
 Here we use a larger sample size (N=100), and simulate from Beta(2,1)
 so that questions are concentrated in the higher-probability range.
+
+
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/funnel_builtin.png" width=170 height=200>
 <img
