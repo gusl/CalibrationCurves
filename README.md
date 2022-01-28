@@ -118,7 +118,8 @@ src="https://github.com/gusl/CalibrationCurves/blob/main/img/C_boot.png" width=1
 ## Example D: Questions concentrated at higher probabilities (N=100)
 
 Here we use a larger sample size (N=100), and simulate from Beta(2,1)
-so that questions are concentrated in the higher-probability range.
+so that questions are concentrated in the higher-probability
+range. Note that our intervals get narrower for higher values of Guess.
 
 
 <img
