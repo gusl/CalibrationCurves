@@ -126,6 +126,13 @@ src="https://github.com/gusl/CalibrationCurves/blob/main/img/underconf_builtin.p
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/underconf_boot.png" width=170 height=200>
 
+## Example F: Guesses are pulled towards 50%, N=500
+
+<img
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/underconf500_builtin.png" width=170 height=200>
+<img
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/underconf500_boot.png" width=170 height=200>
+
 
 ## Analysis
 

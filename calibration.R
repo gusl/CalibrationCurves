@@ -15,7 +15,7 @@ AugmentData <- function(d, n.orig=1) {
 
 # Simulate --------------
 
-N <- 100
+N <- 500
 ps <- sort(rbeta(N, shape1=1, shape2=1))
 
 ## So that 0 -> 0.01, 1 -> 0.99
@@ -189,10 +189,10 @@ title(paste0(ci.method
 #PlotCIs()
 
 
-legend(0.01,1,legend=c("Built-in","Bootstrap"),lty = 1,
-       col=c("red", "black"), cex=0.6, border=NA)
-title("Comparison of different CIs methods\n Perfect calibration shown as diagonal")
-abline(0,1, lty=2)
+# legend(0.01,1,legend=c("Built-in","Bootstrap"),lty = 1,
+#        col=c("red", "black"), cex=0.6, border=NA)
+# title("Comparison of different CIs methods\n Perfect calibration shown as diagonal")
+# abline(0,1, lty=2)
 
 
 
