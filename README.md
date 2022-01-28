@@ -86,12 +86,12 @@ is more than 5%.
 
 ## Example A: over-confident forecaster
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/img/builtin.png" width=180 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/builtin.png" width=170 height=200>
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/img/boot_pseudo.png" width=180 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/boot_pseudo.png" width=170 height=200>
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/compared.png"
-width=180 height=200>
+width=170 height=200>
 
 ## Example B: well-calibrated forecaster
 <img
@@ -102,6 +102,6 @@ src="https://github.com/gusl/CalibrationCurves/blob/main/img/B_boot.png" width=1
 
 ## Example C: under-confident forecaster
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/img/C_builtin.png" width=160 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/C_builtin.png" width=170 height=200>
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/img/C_boot.png" width=160 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/C_boot.png" width=170 height=200>
