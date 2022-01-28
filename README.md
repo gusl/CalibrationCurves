@@ -1,3 +1,5 @@
+By gusl@, 2022-01-27
+
 This repo focuses on probabilistic forecasts for binary questions.
 
 # Calibration Curves
