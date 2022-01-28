@@ -50,7 +50,15 @@ src="https://github.com/gusl/CalibrationCurves/blob/main/builtin.png" width=180 
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/boot_pseudo.png" width=180 height=200>
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/compared.png" width=180 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/compared.png"
+width=180 height=200>
+
+
+<img
+src="https://github.com/gusl/CalibrationCurves/blob/main/C_builtin.png" width=180 height=200>
+<img
+src="https://github.com/gusl/CalibrationCurves/blob/main/C_boots.png" width=180 height=200>
+
 
 Our CIs can use one of several methods:
 - (A) `cgam`'s built-in CIs, which do not have isotonicity and in fact
