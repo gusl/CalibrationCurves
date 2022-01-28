@@ -2,19 +2,18 @@ This repo focuses on probabilistic forecasts for binary questions.
 
 # Calibration Curves
 
-Ironically, calibration reports typically do not include any probabilistic
-statements, making it impossible to evaluate the evaluator! This is our attempt at fixing this.
+Ironically, calibration reports typically do not themselves make probabilistic
+claims, making it impossible to evaluate the evaluator! This is our attempt at fixing this.
 
 **Project Status:**
 - We have 2 methods for producing confidence regions of
-calibration curves ([see
-here](https://github.com/gusl/CalibrationCurves#initial-comparisons)),
-using isotonic (a.k.a. non-decreasing) binary regression (`cgam`
-library). Note that every CI method here suffers from potential non-isotonicity, but this is barely visible in our
+calibration curves by using isotonic (a.k.a. non-decreasing) binary regression (`cgam`
+library). [See
+visualizations](https://github.com/gusl/CalibrationCurves#initial-comparisons)). Note
+that every CI method here suffers from potential non-isotonicity, but this is barely visible in our
 augmented bootstrap method, which is a big improvement over the
 built-in method.
 
-- 
 
 **Future work:**
 - Analyze performance of different CI methods
