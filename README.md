@@ -42,7 +42,7 @@ where **g** is a non-decreasing function. We don't know what `cgam`
 uses under the hood to enforce this shape constraint, but it does
 appear to work -- the MLE seems to always be an isotonic function.  Unfortunately, isotonicity is not guaranteed for
 the confidence intervals (CIs).  While our methods don't guarantee that the quantile will be
-isotonic as a function of X, but they do improve this significantly.
+isotonic as a function of X, they do improve this significantly.
 
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/builtin.png" width=180 height=200>
