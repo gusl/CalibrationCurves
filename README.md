@@ -64,7 +64,7 @@ Our CIs can use one of several methods:
 	
 We can imagine improving upon (B) by increasing the number of
 pseudo-data points at the endpoints by 10x, so that it becomes overwhelmingly
-unlikely for `predict`'s range to be restricted (Chance of 2^-20 per endpoint). To compensate for
+unlikely for `predict`'s range to be restricted (chance of ~(0.368)^20 per endpoint). To compensate for
 this stronger prior, one would
 simultaneously increase the sample size of real observations (possibly even
 more). To avoid the phenomenon of data duplication leading to
