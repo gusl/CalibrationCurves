@@ -13,11 +13,10 @@ AugmentData <- function(d, n.orig=1) {
   return(rbind(raws, pseudo.data))
 }
 
-###############
-# Simulate
-###############
-N <- 30
-ps <- sort(rbeta(N, shape1=1, shape2=1))
+# Simulate --------------
+
+N <- 100
+ps <- sort(rbeta(N, shape1=2, shape2=1))
 
 ## So that 0 -> 0.01, 1 -> 0.99
 RoundGuess <- function(p) (floor(98*p) + 1)/100
@@ -25,6 +24,7 @@ guess <- RoundGuess(ps)
 outcome <- rbinom(N, 1, prob=ps)
 data <- data.frame(guess=guess, outcome=outcome)
 raw.data <- data
+dev.off()
 with(raw.data, plot(guess, outcome))
 
 data <- AugmentData(data)

@@ -108,6 +108,12 @@ src="https://github.com/gusl/CalibrationCurves/blob/main/img/C_builtin.png" widt
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/C_boot.png" width=170 height=200>
 
+## Example D: Questions concentrated at higher probabilities
+<img
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/funnel_builtin.png" width=170 height=200>
+<img
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/funnel_boot.png" width=170 height=200>
+
 
 The huge CIs at the endpoints are probably an artifact of tiny sample
 sizes in regions to which `cgam` cannot extrapolate. The current bootstrap method does not have this problem thanks to the data augmentation.
