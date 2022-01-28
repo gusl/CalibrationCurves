@@ -9,7 +9,7 @@ claims, making it impossible to evaluate the evaluator! This is our attempt at f
 - We have 2 methods for producing confidence regions of
 calibration curves by using isotonic (a.k.a. non-decreasing) binary regression (`cgam`
 library). [See
-visualizations](https://github.com/gusl/CalibrationCurves#initial-comparisons)). Note
+visualizations](https://github.com/gusl/CalibrationCurves#initial-comparisons). Note
 that every CI method here suffers from potential non-isotonicity, but this is barely visible in our
 augmented bootstrap method, which is a big improvement over the
 built-in method.
@@ -95,13 +95,13 @@ width=180 height=200>
 
 ## Example B: well-calibrated forecaster
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/img/B_builtin.png" width=180 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/B_builtin.png" width=170 height=200>
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/img/B_boot.png" width=180 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/B_boot.png" width=170 height=200>
 
 
 ## Example C: under-confident forecaster
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/img/C_builtin.png" width=180 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/C_builtin.png" width=160 height=200>
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/img/C_boot.png" width=180 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/C_boot.png" width=160 height=200>
