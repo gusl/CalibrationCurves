@@ -1,9 +1,9 @@
-This is a project to add statistical analyses of probability calibration curves and forecaster performance more broadly. This repo focuses on binary questions.
+This repo focuses on probabilistic forecasts for binary questions.
 
 # Calibration Curves
 
-Ironically, calibration curves typically published without any
-making probabilistic claims. This is our attempt at fixing this.
+Ironically, calibration curves are typically published without making
+any probability statements. This is our attempt at fixing this.
 
 **Status:** We have 2 methods for producing confidence regions of
 calibration curves, using isotonic (a.k.a. non-decreasing) binary
