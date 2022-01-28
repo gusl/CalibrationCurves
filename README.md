@@ -2,8 +2,8 @@ This repo focuses on probabilistic forecasts for binary questions.
 
 # Calibration Curves
 
-Ironically, calibration curves are typically published without making
-any probability statements. This is our attempt at fixing this.
+Ironically, calibration typicall do not come with any probability
+statements. No-one is evaluating the evaluator! This is our attempt at fixing this.
 
 **Status:** We have 2 methods for producing confidence regions of
 calibration curves, using isotonic (a.k.a. non-decreasing) binary
