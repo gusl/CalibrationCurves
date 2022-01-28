@@ -95,7 +95,7 @@ ComputeCIs <- function(coverage, use.builtin=TRUE, adjust=FALSE, use.beta=FALSE)
   ## Built-in
   if (use.builtin) {
     fit <- cgam(outcome ~ incr(guess), data=mle.data, family=binomial())
-    pred <- predict(fit, data.frame(guess=XX),
+    pred <- predict(fit, data.frame(guess=mle.XX),
                     interval='confidence', level=coverage)
     l <- pred$lower
     u <- pred$upper
@@ -144,24 +144,35 @@ ComputeCIs <- function(coverage, use.builtin=TRUE, adjust=FALSE, use.beta=FALSE)
 
 # Make Plots ---------------------------------------------------------------------
 
-PlotCIs <- function (levels=c(.8, .95, .98)) {
+PlotCIs <- function (XX, levels=c(.8, .95), extend.polygon=TRUE) {
   for (level in levels){
-  cis <- ComputeCIs(level, use.builtin = use.builtin, adjust=adjust, use.beta=use.beta)
-  with(cis, polygon(c(0, XX, 1, 1, rev(XX), 0),
-                    c(0, l, Last(l), 1, rev(u), u[1]),
-                    col=col, border=NA))
+    cis <- ComputeCIs(level, use.builtin = use.builtin, adjust=adjust, use.beta=use.beta)
+    if (extend.polygon){
+      with(cis, polygon(c(0, XX, 1, 1, rev(XX), 0),
+                        c(0, l, Last(l), 1, rev(u), u[1]),
+                        col=col, border=NA))
+    } else {
+      with(cis, polygon(c(XX, rev(XX)),
+                        c(l, rev(u)),
+                        col=col, border=NA))
+    }
   }
 }
+
+## MLE using raw data
+mle.data <- raw.data
+mle.XX <- with(mle.data, seq(min(guess),max(guess), 0.01))
+
 
 par(mar=rep(5,4))
 with(raw.data,
      plot(guess, -0.12 + 1.14 * outcome + 0.1 * runif(N), asp=1,
-          xlab="Guess", ylab="Empirical frequency", col='#00000080', pch=16))
+          xlab="Guess", ylab="Empirical Frequency", col='#00000080', pch=16))
 abline(h=c(0,1), col="#00000030")
 adjust <- FALSE; use.builtin <- FALSE; use.beta <- FALSE; ci.method <- paste0("Bootstrap with pseudo-data"); col <- "#00000030"
-PlotCIs()
+PlotCIs(XX, extend.polygon=FALSE)
 adjust <- FALSE; use.builtin <- TRUE; use.beta <- FALSE; ci.method <- "Built-in confidence intervals (cgam)"; col <- "#FF000030"
-PlotCIs()
+PlotCIs(mle.XX, extend.polygon=FALSE)
 
 
 #adjust <- TRUE; use.builtin <- FALSE; use.beta <- TRUE; ci.method <- paste0("Bootstrap with Beta"); col <- "#0000FF30"
@@ -176,7 +187,7 @@ abline(0,1, lty=2)
 
 ## Diagonal line and title
 title(paste0(ci.method
-             ,"\nConfidence levels: 80%, 95%, 98%\n"
+             ,"\nConfidence levels: 80%, 95%\n"
              ), cex=0.8)
 
 
@@ -188,9 +199,6 @@ red <- "#AA0000A0"
 purple <- "#AA00FFA0"
 
 
-## MLE using raw data
-mle.data <- raw.data
-mle.XX <- with(mle.data, seq(min(guess),max(guess), 0.01))
 fit <- cgam(outcome ~ incr(guess), data=mle.data, family=binomial())
 pred <- predict(fit, data.frame(guess=mle.XX))
 predfit <- pred$fit
