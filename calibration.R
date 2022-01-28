@@ -25,7 +25,7 @@ YY <- DistortUnderconf(XX)
 plot(XX, YY, type='l')
 guess <- RoundGuess(ps)
 outcome <- rbinom(N, 1, prob=ps)
-guess <- DistortUnderconf(guess)
+##guess <- DistortUnderconf(guess)
 data <- data.frame(guess=guess, outcome=outcome)
 raw.data <- data
 dev.off()

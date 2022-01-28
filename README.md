@@ -86,7 +86,7 @@ is more than 5%.
 
 # Initial comparisons
 
-## Example A: over-confident forecaster
+## Example A: over-confident forecaster (N=30)
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/builtin.png" width=170 height=200>
 <img
@@ -95,20 +95,27 @@ src="https://github.com/gusl/CalibrationCurves/blob/main/img/boot_pseudo.png" wi
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/compared.png"
 width=170 height=200>
 
-## Example B: well-calibrated forecaster
+## Example B: Well-calibrated forecaster (N=30)
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/B_builtin.png" width=170 height=200>
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/B_boot.png" width=170 height=200>
 
+## Example B2: Well-calibrated, (N=500)
 
-## Example C: under-confident forecaster
+<img
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/N500_builtin.png" width=170 height=200>
+<img
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/N500_boot.png" width=170 height=200>
+
+
+## Example C: Under-confident forecaster (N=30)
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/C_builtin.png" width=170 height=200>
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/C_boot.png" width=170 height=200>
 
-## Example D: Questions concentrated at higher probabilities
+## Example D: Questions concentrated at higher probabilities (N=100)
 
 Here we use a larger sample size (N=100), and simulate from Beta(2,1)
 so that questions are concentrated in the higher-probability range.
@@ -119,14 +126,14 @@ src="https://github.com/gusl/CalibrationCurves/blob/main/img/funnel_builtin.png"
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/funnel_boot.png" width=170 height=200>
 
-## Example E: Guesses are pulled towards 50%
+## Example E: Guesses are pulled towards 50% (N=100)
 
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/underconf_builtin.png" width=170 height=200>
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/underconf_boot.png" width=170 height=200>
 
-## Example F: Guesses are pulled towards 50%, N=500
+## Example F: Guesses are pulled towards 50% (N=500)
 
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/underconf500_builtin.png" width=170 height=200>
