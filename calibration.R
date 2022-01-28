@@ -168,11 +168,17 @@ par(mar=rep(5,4))
 with(raw.data,
      plot(guess, -0.12 + 1.14 * outcome + 0.1 * runif(N), asp=1,
           xlab="Guess", ylab="Empirical Frequency", col='#00000080', pch=16))
-abline(h=c(0,1), col="#00000030")
+abline(h=c(0,1), col="black")
 adjust <- FALSE; use.builtin <- FALSE; use.beta <- FALSE; ci.method <- paste0("Bootstrap with pseudo-data"); col <- "#00000030"
 PlotCIs(XX, extend.polygon=FALSE)
 adjust <- FALSE; use.builtin <- TRUE; use.beta <- FALSE; ci.method <- "Built-in confidence intervals (cgam)"; col <- "#FF000030"
 PlotCIs(mle.XX, extend.polygon=FALSE)
+
+## Diagonal line and title
+abline(0,1, lty=2)
+title(paste0(ci.method
+             ,"\nConfidence levels: 80%, 95%\n"
+), cex=0.8)
 
 
 #adjust <- TRUE; use.builtin <- FALSE; use.beta <- TRUE; ci.method <- paste0("Bootstrap with Beta"); col <- "#0000FF30"
@@ -185,11 +191,6 @@ title("Comparison of different CIs methods\n Perfect calibration shown as diagon
 abline(0,1, lty=2)
 
 
-## Diagonal line and title
-abline(0,1, lty=2)
-title(paste0(ci.method
-             ,"\nConfidence levels: 80%, 95%\n"
-             ), cex=0.8)
 
 
 # Plot MLE ---------------------------------------------------------------------
