@@ -58,7 +58,7 @@ width=180 height=200>
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/C_builtin.png" width=180 height=200>
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/C_boots.png" width=180 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/C_boot.png" width=180 height=200>
 
 
 Our CIs can use one of several methods:
