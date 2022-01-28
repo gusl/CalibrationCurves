@@ -45,17 +45,6 @@ appear to work -- the MLE seems to always be an isotonic function.  Unfortunatel
 the confidence intervals (CIs).  While our methods don't guarantee that the quantile will be
 isotonic as a function of X, they do improve this significantly.
 
-
-Our CIs can use one of several methods:
-- (A) `cgam`'s built-in CIs, which do not have isotonicity and in fact
-  tend to be extremely wide near the X endpoints 0 and 1, which is not ideal.
-- (B) Empirical quantiles of bootstrapped fits at each X level.
-  - which may or may not be smoothed, e.g. one can smoothe using 4 pseudo-observations
-    that serve as a kind of Beta(1,1) prior. This is better, but note that it still does
-    not guarantee isotonicity, since the endpoints tend to have
-    smaller sample sizes due to `predict`'s refusal to
-    extrapolate beyond the observed data.
-	
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/builtin.png" width=180 height=200>
 <img
@@ -69,6 +58,18 @@ width=180 height=200>
 src="https://github.com/gusl/CalibrationCurves/blob/main/C_builtin.png" width=180 height=200>
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/C_boots.png" width=180 height=200>
+
+
+Our CIs can use one of several methods:
+- (A) `cgam`'s built-in CIs, which do not have isotonicity and in fact
+  tend to be extremely wide near the X endpoints 0 and 1, which is not ideal.
+- (B) Empirical quantiles of bootstrapped fits at each X level.
+  - which may or may not be smoothed, e.g. one can smoothe using 4 pseudo-observations
+    that serve as a kind of Beta(1,1) prior. This is better, but note that it still does
+    not guarantee isotonicity, since the endpoints tend to have
+    smaller sample sizes due to `predict`'s refusal to
+    extrapolate beyond the observed data.
+	
 
 	
 We can imagine improving upon (B) by increasing the number of
