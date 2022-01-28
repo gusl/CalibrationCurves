@@ -119,6 +119,14 @@ src="https://github.com/gusl/CalibrationCurves/blob/main/img/funnel_builtin.png"
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/funnel_boot.png" width=170 height=200>
 
+## Example E: Guesses are pulled towards 50%
+
+<img
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/underconf_builtin.png" width=170 height=200>
+<img
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/underconf_boot.png" width=170 height=200>
+
+
 ## Analysis
 
 The huge CIs at the endpoints are probably an artifact of tiny sample

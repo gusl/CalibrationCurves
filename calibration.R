@@ -16,12 +16,16 @@ AugmentData <- function(d, n.orig=1) {
 # Simulate --------------
 
 N <- 100
-ps <- sort(rbeta(N, shape1=2, shape2=1))
+ps <- sort(rbeta(N, shape1=1, shape2=1))
 
 ## So that 0 -> 0.01, 1 -> 0.99
 RoundGuess <- function(p) (floor(98*p) + 1)/100
+DistortUnderconf <- function(x) 0.5 + 4*(x - 0.5)^3
+YY <- DistortUnderconf(XX)
+plot(XX, YY, type='l')
 guess <- RoundGuess(ps)
 outcome <- rbinom(N, 1, prob=ps)
+guess <- DistortUnderconf(guess)
 data <- data.frame(guess=guess, outcome=outcome)
 raw.data <- data
 dev.off()
@@ -51,8 +55,10 @@ Bootstrap <- function(data, K = 20, add.pseudodata = TRUE) {
     XX <- seq(min(d$guess), max(d$guess), 0.01) ## range gets bigger with pseudodata
     XX <- RoundPercent(XX)
     full.XX <- RoundPercent(full.XX)
-    pred <- predict(fit, data.frame(guess=XX))$fit ## Extrapolation not allowed
-    preds[k, match(XX, full.XX)] <- pred   ## Replace some of the NAs
+    tryCatch({
+      pred <- predict(fit, data.frame(guess=XX))$fit ## Extrapolation not allowed
+      preds[k, match(XX, full.XX)] <- pred   ## Replace some of the NAs
+    }, error=function(e) {print(e); browser()})
     if (min(filter(pred, c(1,-1)), na.rm=TRUE) < 0) {
       cat("ERROR: Detected non-isotonic fit:  k =", k) ## Just in case
     }
@@ -211,5 +217,5 @@ fit <- cgam(outcome ~ incr(guess), data=mle.data, family=binomial())
 pred <- predict(fit, data.frame(guess=mle.XX))
 predfit <- pred$fit
 points(mle.XX, predfit, type='l', col=purple, lty=1)
-legend(0.36,0.25,legend=c("Raw estimate","Smoothed estimate"),lty = 1,
+legend(0,1,legend=c("Raw est.","Smoothed est."),lty = 1,
        col=c(red, purple), cex=0.5, border=NA)
