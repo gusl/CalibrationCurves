@@ -186,6 +186,7 @@ abline(0,1, lty=2)
 
 
 ## Diagonal line and title
+abline(0,1, lty=2)
 title(paste0(ci.method
              ,"\nConfidence levels: 80%, 95%\n"
              ), cex=0.8)
