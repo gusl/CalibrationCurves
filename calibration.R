@@ -1,9 +1,6 @@
-## Calibrating the calibrator!
-## Ironically, calibration curves typically don't come with any probabilistic
-## claims.
+library(cgam)
 
 Last <- function(v) v[length(v)]
-library(cgam)
 
 AugmentData <- function(d, n.orig=1) {
   ## n.orig: number of times raw data counts, typically 1 or 2
@@ -27,7 +24,10 @@ RoundGuess <- function(p) (floor(98*p) + 1)/100
 guess <- RoundGuess(ps)
 outcome <- rbinom(N, 1, prob=ps)
 data <- data.frame(guess=guess, outcome=outcome)
+## save(data, file="~/underconfident.Rdata")
 raw.data <- data
+##load("~/underconfident.Rdata")
+
 data <- AugmentData(data)
 RoundPercent <- function(p) round(p*100)/100
 
@@ -71,19 +71,19 @@ XX.sample.size
 good.indices <- which(XX.sample.size >= 15)
 XX <- full.XX[good.indices]
 
-## Quantile of a Beta distribution on the less identified side near the endpoints.
-## Instead of plugging in data, we enter the 'pred'
-BetaQuantile <- function(q, p, XX.sample.size, K) {
-  ## Treat the estimates as data. shape1 = 1 + (K - sum(p)), shape2 = 1 + sum(p)
-  ## q: desired quantile
-  ## p: vector of estimated probabilities
-  ## XX.sample.size: bootstrap sample size for each XX
-  qbeta(qs,
-        shape1 = 1 + (K - XX.sample.size) * p,
-        shape2 = 1 + XX.sample.size * p)
-}
-## Original problem: The empirical CI is sometimes exactly 0 at the tails. We
-## could threshold it with a constant defined by the Beta quantile.
+# ## Quantile of a Beta distribution on the less identified side near the endpoints.
+# ## Instead of plugging in data, we enter the 'pred'
+# BetaQuantile <- function(q, p, XX.sample.size, K) {
+#   ## Treat the estimates as data. shape1 = 1 + (K - sum(p)), shape2 = 1 + sum(p)
+#   ## q: desired quantile
+#   ## p: vector of estimated probabilities
+#   ## XX.sample.size: bootstrap sample size for each XX
+#   qbeta(qs,
+#         shape1 = 1 + (K - XX.sample.size) * p,
+#         shape2 = 1 + XX.sample.size * p)
+# }
+# ## Issue: The empirical CI sometimes shrinks to [0,0] or [1,1]. We
+# ## could threshold it with a constant defined by the Beta quantile.
 
 
 ComputeCIs <- function(coverage, use.builtin=TRUE, adjust=FALSE, use.beta=FALSE) {
@@ -171,9 +171,10 @@ PlotCIs()
 legend(0.01,1,legend=c("Built-in","Bootstrap"),lty = 1,
        col=c("red", "black"), cex=0.6, border=NA)
 title("Comparison of different CIs methods\n Perfect calibration shown as diagonal")
+abline(0,1, lty=2)
+
 
 ## Diagonal line and title
-abline(0,1, lty=2)
 title(paste0(ci.method
              ,"\nConfidence levels: 80%, 95%, 98%\n"
              ), cex=0.8)
