@@ -27,6 +27,7 @@ data <- data.frame(guess=guess, outcome=outcome)
 ## save(data, file="~/underconfident.Rdata")
 raw.data <- data
 ##load("~/underconfident.Rdata")
+with(raw.data, plot(guess, outcome))
 
 data <- AugmentData(data)
 RoundPercent <- function(p) round(p*100)/100
@@ -213,5 +214,5 @@ fit <- cgam(outcome ~ incr(guess), data=mle.data, family=binomial())
 pred <- predict(fit, data.frame(guess=mle.XX))
 predfit <- pred$fit
 points(mle.XX, predfit, type='l', col=purple, lty=1)
-legend(0,1,legend=c("Raw estimate","Smoothed estimate"),lty = 1,
-       col=c(red, purple), cex=0.4, border=NA)
+legend(0.36,0.25,legend=c("Raw estimate","Smoothed estimate"),lty = 1,
+       col=c(red, purple), cex=0.5, border=NA)

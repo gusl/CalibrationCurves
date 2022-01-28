@@ -46,6 +46,7 @@ appear to work -- the MLE seems to always be an isotonic function.  Unfortunatel
 the confidence intervals (CIs).  While our methods don't guarantee that the quantile will be
 isotonic as a function of X, they do improve this significantly.
 
+## Example A: over-confident forecaster
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/builtin.png" width=180 height=200>
 <img
@@ -54,12 +55,18 @@ src="https://github.com/gusl/CalibrationCurves/blob/main/boot_pseudo.png" width=
 src="https://github.com/gusl/CalibrationCurves/blob/main/compared.png"
 width=180 height=200>
 
+## Example B: well-calibrated forecaster
+<img
+src="https://github.com/gusl/CalibrationCurves/blob/main/B_builtin.png" width=180 height=200>
+<img
+src="https://github.com/gusl/CalibrationCurves/blob/main/B_boot.png" width=180 height=200>
 
+
+## Example C: under-confident forecaster
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/C_builtin.png" width=180 height=200>
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/C_boot.png" width=180 height=200>
-
 
 Our CIs can use one of several methods:
 - (A) `cgam`'s built-in CIs, which do not have isotonicity and in fact
