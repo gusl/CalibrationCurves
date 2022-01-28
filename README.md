@@ -87,22 +87,22 @@ is more than 5%.
 
 ## Example A: over-confident forecaster
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/builtin.png" width=180 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/builtin.png" width=180 height=200>
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/boot_pseudo.png" width=180 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/boot_pseudo.png" width=180 height=200>
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/compared.png"
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/compared.png"
 width=180 height=200>
 
 ## Example B: well-calibrated forecaster
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/B_builtin.png" width=180 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/B_builtin.png" width=180 height=200>
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/B_boot.png" width=180 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/B_boot.png" width=180 height=200>
 
 
 ## Example C: under-confident forecaster
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/C_builtin.png" width=180 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/C_builtin.png" width=180 height=200>
 <img
-src="https://github.com/gusl/CalibrationCurves/blob/main/C_boot.png" width=180 height=200>
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/C_boot.png" width=180 height=200>
