@@ -101,7 +101,7 @@ src="https://github.com/gusl/CalibrationCurves/blob/main/img/B_builtin.png" widt
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/B_boot.png" width=170 height=200>
 
-## Example B2: Well-calibrated, (N=500)
+## Example B2: Well-calibrated (N=500)
 
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/N500_builtin.png" width=170 height=200>
