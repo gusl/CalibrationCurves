@@ -34,8 +34,8 @@ outcome <- rbinom(N, 1, prob=ps)
 
 ## Distort guess to model forecaster "personality". Pick one of these:
 guess
-guess <- DistortUnderconf(guess)
-guess <- DistortOverconf(guess)
+## guess <- DistortUnderconf(guess) ## This one works
+## guess <- DistortOverconf(guess) ## This one breaks things
 
 ## ToDo:
 ## Add command-line argument --input_csv
@@ -174,8 +174,9 @@ with(raw.data,
 abline(h=c(0,1), col="black")
 adjust <- FALSE; use.builtin <- FALSE; use.beta <- FALSE; ci.method <- paste0("Bootstrap with pseudo-data"); col <- "#00000030"
 PlotCIs(XX, extend.polygon=FALSE)
-adjust <- FALSE; use.builtin <- TRUE; use.beta <- FALSE; ci.method <- "Built-in confidence intervals (cgam)"; col <- "#FF000030"
-PlotCIs(mle.XX, extend.polygon=FALSE)
+## Built-in method
+# adjust <- FALSE; use.builtin <- TRUE; use.beta <- FALSE; ci.method <- "Built-in confidence intervals (cgam)"; col <- "#FF000030"
+# PlotCIs(mle.XX, extend.polygon=FALSE)
 
 ## Diagonal line and title
 abline(0,1, lty=2)
@@ -209,3 +210,4 @@ predfit <- pred$fit
 points(mle.XX, predfit, type='l', col=purple, lty=1)
 legend(0,1,legend=c("Raw est.","Smoothed est."),lty = 1,
        col=c(red, purple), cex=0.5, border=NA)
+
