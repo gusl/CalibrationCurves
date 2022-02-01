@@ -141,6 +141,13 @@ src="https://github.com/gusl/CalibrationCurves/blob/main/img/underconf500_builti
 <img
 src="https://github.com/gusl/CalibrationCurves/blob/main/img/underconf500_boot.png" width=170 height=200>
 
+## Example G: Guesses are pulled towards extremes (N=500)
+
+<img
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/overconf_builtin.png" width=170 height=200>
+<img
+src="https://github.com/gusl/CalibrationCurves/blob/main/img/overconf_boot.png" width=170 height=200>
+
 
 ## Analysis
 

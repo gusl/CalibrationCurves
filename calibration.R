@@ -23,7 +23,8 @@ RoundGuess <- function(p) (floor(98*p) + 1)/100
 DistortUnderconf <- function(x) 0.5 + 4*(x - 0.5)^3
 CubeRoot <- function(x) sign(x) * abs(x)^(1/3)
 DistortOverconf <- function(x) 0.5 + CubeRoot((x - 0.5) / 4)
-XX <- seq(0, 1, .01)
+
+{ XX <- seq(0, 1, .01)
 par(mfrow=c(1,2))
 YY <- DistortUnderconf(XX)
 plot(XX, YY, type='l')
@@ -31,11 +32,12 @@ YY <- DistortOverconf(XX)
 plot(XX, YY, type='l')
 guess <- RoundGuess(ps)
 outcome <- rbinom(N, 1, prob=ps)
+rm(XX)}
 
 ## Distort guess to model forecaster "personality". Pick one of these:
 guess
 ## guess <- DistortUnderconf(guess) ## This one works
-## guess <- DistortOverconf(guess) ## This one breaks things
+## guess <- DistortOverconf(guess) ## This one breaks the bootstrap
 
 ## ToDo:
 ## Add command-line argument --input_csv
@@ -50,13 +52,14 @@ RoundPercent <- function(p) round(p*100)/100
 
 # Bootstrap CIs ---------------------------------------------------------------
 
+full.XX <- seq(0.0, 1.00, 0.01)
+full.XX <- sapply(full.XX, RoundPercent)
+
 Bootstrap <- function(data, K = 20, add.pseudodata = TRUE) {
   ## data:
   ## K: number of bootstrap samples
   ## add.pseudodata: 
   preds <- matrix(NA, nrow=K, ncol=101)
-  full.XX <- seq(0.0, 1.00, 0.01)
-  full.XX <- sapply(full.XX, RoundPercent)
   if (add.pseudodata) {
     data <- AugmentData(data)
   }
@@ -66,7 +69,7 @@ Bootstrap <- function(data, K = 20, add.pseudodata = TRUE) {
     indices <- sample(boot.N, replace = TRUE)
     d <- data[indices, ]
     fit <- cgam(outcome ~ incr(guess), data = d, family = binomial())
-    XX <- seq(min(d$guess), max(d$guess), 0.01) ## range gets bigger with pseudodata
+    XX <- seq(max(0.01, min(d$guess)), min(0.99, max(d$guess)), 0.01) ## range gets bigger with pseudodata
     XX <- RoundPercent(XX)
     full.XX <- RoundPercent(full.XX)
     tryCatch({
@@ -106,6 +109,8 @@ ComputeCIs <- function(coverage, use.builtin=TRUE, adjust=FALSE, use.beta=FALSE)
     l <- pred$lower
     u <- pred$upper
   } else { ## Bootstrap CIs
+    XX.sample.size <- apply(preds, 2, function(v) sum(!is.na(v)))
+    good.indices <- which(XX.sample.size >= 15)
     num.present <- apply(preds[, good.indices], 2, function(v) sum(!is.na(v)))
     cis <- apply(preds[, good.indices], 2, 
                  function(v) quantile(v, ## augment with 0 and 1?
@@ -113,35 +118,16 @@ ComputeCIs <- function(coverage, use.builtin=TRUE, adjust=FALSE, use.beta=FALSE)
     l <- cis[1,]
     u <- cis[2,]
   }
-  if (adjust) {
-    ## BUG: these vectors (*.thresholds) are backwards
-    ## For all points (on the extremities?), compute the worst Beta quantile
-    ## Should be weighted by bootstrap samples K
-    #################
-    ## Idea: use moment-matching for Beta family?
-    ## Problem: E[log(x)] = -infinity
-    ## Match mean and variance instead? Then it becomes hard to solve analytically.
-    upper.thresholds <- sapply(good.indices, 
-                               function(i)
-                                 qbeta(qs[2], 
-                                       shape2 = 1 + mean(1 - preds[, i]),
-                                       shape1 = 1 + mean(preds[, i])))
-    thresh.at.0 <- min(upper.thresholds, na.rm=TRUE)
-    lower.thresholds <- sapply(good.indices,
-                               function(i)
-                                 qbeta(qs[1], 
-                                       shape2 = 1 + mean(1 - preds[, i]),
-                                       shape1 = 1 + mean(preds[, i])))
-    thresh.at.1 <- max(lower.thresholds, na.rm=TRUE)
-    if (use.beta){
-      u <- upper.thresholds
-      l <- lower.thresholds
-    } else {
-      u <- ifelse(u < thresh.at.0, thresh.at.0, u)
-      l <- ifelse(l > thresh.at.1, thresh.at.1, l)
-    }
-  }
-  return(data.frame(l=l, u=u))
+  ##if (adjust) {
+  ## Idea:
+  ## For all points (on the extremities?), compute the worst Beta quantile
+  ## Should be weighted by bootstrap samples K
+  #################
+  ## Idea: use moment-matching for Beta family?
+  ## Problem: E[log(x)] = -infinity
+  ## Match mean and variance instead? Then it becomes hard to solve analytically.
+  ## }
+  return(data.frame(X = full.XX[good.indices], l = l, u = u))
 }
 
 
@@ -175,8 +161,8 @@ abline(h=c(0,1), col="black")
 adjust <- FALSE; use.builtin <- FALSE; use.beta <- FALSE; ci.method <- paste0("Bootstrap with pseudo-data"); col <- "#00000030"
 PlotCIs(XX, extend.polygon=FALSE)
 ## Built-in method
-# adjust <- FALSE; use.builtin <- TRUE; use.beta <- FALSE; ci.method <- "Built-in confidence intervals (cgam)"; col <- "#FF000030"
-# PlotCIs(mle.XX, extend.polygon=FALSE)
+adjust <- FALSE; use.builtin <- TRUE; use.beta <- FALSE; ci.method <- "Built-in confidence intervals (cgam)"; col <- "#FF000030"
+PlotCIs(mle.XX, extend.polygon=FALSE)
 
 ## Diagonal line and title
 abline(0,1, lty=2)
